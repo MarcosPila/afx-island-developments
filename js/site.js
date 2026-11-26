@@ -9,7 +9,7 @@
      Until a link is set, the icons are inert. Example: instagram: 'https://www.instagram.com/yourhandle' */
   const SOCIAL = {
     instagram: '',
-    facebook: '',
+    facebook: 'https://www.facebook.com/profile.php?id=61597100485563',
   };
   $$('[data-social]').forEach((a) => {
     const url = SOCIAL[a.dataset.social];
