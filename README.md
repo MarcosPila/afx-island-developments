@@ -2,7 +2,7 @@
 
 Home renovations and repairs across the GTA. Built by Pila Web Co.
 
-Static site: plain HTML pages, one stylesheet and two small scripts. No build step, no framework, no backend, no animation. No third-party requests: the fonts are self-hosted.
+Static site: plain HTML pages, one stylesheet and two small scripts. No build step, no framework, no backend, no animation (only short colour changes on hover). No third-party requests: the fonts are self-hosted.
 
 Live preview: https://marcospila.github.io/afx-island-developments/
 
@@ -37,12 +37,15 @@ The live site refreshes in about a minute.
 - **Services and examples:** `services.html` (full cards) and `index.html` (short tiles).
 - **Projects and photos:** `work.html`. Each project is one `<article class="proj" data-cat="interior|exterior">`. Photos are in `img/`.
 - **FAQ:** `faq.html`. If you change an answer, also update the matching text in the `FAQPage` JSON-LD in that file's `<head>`.
+- **Instagram and Facebook links:** open `js/site.js` and paste the full profile addresses into `SOCIAL` at the top (for example `instagram: 'https://www.instagram.com/yourhandle'`). Every icon on every page, including the mobile menu, starts working. Until then the icons do nothing when clicked.
 - **Phone and email:** search for `416 435 9967` and `afxdevelopments@gmail.com`, and for `PHONE` / `EMAIL` in `js/quote.js`.
 - **Estimate form wording and trades:** `quote.html`; message format in `js/quote.js`.
 
 ## Design
 
-One flat theme, no motion. Colours come from the logo (`css/site.css`, `:root`): forest `#1c3019`, olive `#5b623d`, copper `#a7612b`, cream `#f4f0e6`. Headings are condensed Archivo in upper case, body is Source Sans 3, the wordmark uses Cinzel. The pine treeline is `img/treeline.svg`, used as a mask in the hero and above the footer. Contrast was checked against WCAG AA.
+One flat look with no motion. Colours come from the logo (`css/site.css`, `:root`): forest `#1c3019`, olive `#5b623d`, copper `#a7612b`, cream `#f4f0e6`. Headings are condensed Archivo in upper case, body is Source Sans 3, the wordmark uses Cinzel. The faint tape-measure ruler along the bottom of the hero and above the footer is pure CSS (`.ruler`, `.footer-ruler`).
+
+**Light and dark:** the site follows the visitor's system setting until they use the switch in the header; the choice is saved in `localStorage` as `afx-theme`. The header, hero and footer stay forest green in both themes, so their text is always the light cream colour (including the logo name on hover). Contrast was checked against WCAG AA in both themes.
 
 ## Preview mode (on now)
 
@@ -66,9 +69,9 @@ While the client reviews the site, it is marked as a preview:
 | Path | What it is |
 |---|---|
 | `css/site.css` | All styles |
-| `js/site.js`, `js/quote.js` | Mobile menu, copy buttons and work filter / estimate form |
+| `js/site.js`, `js/quote.js` | Theme switch, social links, mobile menu, copy buttons and work filter / estimate form |
 | `fonts/` | Self-hosted Archivo, Cinzel and Source Sans 3 (latin subsets, SIL OFL licence) |
-| `img/` | Logo files, project photos, `treeline.svg`, favicons, and the 1200×630 share image `og-image.png` |
+| `img/` | Logo files, project photos, favicons, and the 1200×630 share image `og-image.png` |
 
 ## Rules
 

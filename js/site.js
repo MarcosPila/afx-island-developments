@@ -1,9 +1,33 @@
-/* Shared behaviour: mobile menu, copy buttons, work filter. No animation. */
+/* Shared behaviour: light/dark switch, mobile menu, social links, copy buttons, work filter. No animation. */
 (() => {
   'use strict';
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
   const root = document.documentElement;
+
+  /* Social profiles: paste the full profile addresses here and every icon on every page starts working.
+     Until a link is set, the icons are inert. Example: instagram: 'https://www.instagram.com/yourhandle' */
+  const SOCIAL = {
+    instagram: '',
+    facebook: '',
+  };
+  $$('[data-social]').forEach((a) => {
+    const url = SOCIAL[a.dataset.social];
+    if (url) { a.href = url; a.target = '_blank'; a.rel = 'noopener noreferrer'; }
+    else { a.title = 'Link coming soon'; a.addEventListener('click', (e) => e.preventDefault()); }
+  });
+
+  /* Light / dark: follows the system setting until the visitor uses the switch, then remembers the choice. */
+  const effective = () => root.dataset.theme || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  const labelSwitch = () => $$('[data-theme-toggle]').forEach((b) => b.setAttribute('aria-label', effective() === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'));
+  $$('[data-theme-toggle]').forEach((b) => b.addEventListener('click', () => {
+    const next = effective() === 'dark' ? 'light' : 'dark';
+    root.dataset.theme = next;
+    try { localStorage.setItem('afx-theme', next); } catch {}
+    labelSwitch();
+  }));
+  matchMedia('(prefers-color-scheme: dark)').addEventListener?.('change', labelSwitch);
+  labelSwitch();
 
   const yr = $('#yr');
   if (yr) yr.textContent = new Date().getFullYear();
