@@ -1,2 +1,2 @@
 Fonts in this folder are served from the original Google Fonts latin subsets and are licensed under the SIL Open Font License 1.1 (https://openfontlicense.org):
-Archivo (Omnibus-Type), Cinzel (Natanael Gama), JetBrains Mono (JetBrains), Source Sans 3 (Adobe).
+Archivo (Omnibus-Type), Cinzel (Natanael Gama), Source Sans 3 (Adobe).

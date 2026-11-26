@@ -1,10 +1,24 @@
 # AFX Island Developments: website
 
-One-page site for AFX Island Developments (home renovations and repairs, GTA and surrounding areas). Built by Pila Web Co.
+Home renovations and repairs across the GTA. Built by Pila Web Co.
 
-Static site: `index.html` (HTML, CSS and JS inline), `privacy.html`, `fonts/` and `img/`. No build step, no framework, no backend. No third-party requests: the fonts are self-hosted.
+Static site: plain HTML pages, one stylesheet and two small scripts. No build step, no framework, no backend, no animation. No third-party requests: the fonts are self-hosted.
 
 Live preview: https://marcospila.github.io/afx-island-developments/
+
+## Pages
+
+| File | What it is |
+|---|---|
+| `index.html` | Home: headline, call and estimate buttons, the 8 services |
+| `services.html` | The 8 service categories with examples, each linking to the estimate form |
+| `work.html` | Interior and exterior project photos with an All / Interior / Exterior filter |
+| `about.html` | About Alberto and AFX, plus the 5-step "How it works" |
+| `faq.html` | Questions and answers |
+| `quote.html` | Single-screen estimate form. It builds a message; the visitor's own text or email app sends it |
+| `privacy.html` | Plain-language privacy page |
+
+The header, footer and `<head>` tags are repeated in every page, so a change to the menu means editing all seven files.
 
 ## Updating the live site
 
@@ -20,32 +34,41 @@ The live site refreshes in about a minute.
 
 ## Editing content
 
-Content lives in data arrays at the top of the script in `index.html`: `SERVICES`, `STEPS`, `PROJECTS`, `CATS`, `FAQ`, `TIMES`, plus the `PHONE` and `EMAIL` constants.
+- **Services and examples:** `services.html` (full cards) and `index.html` (short tiles).
+- **Projects and photos:** `work.html`. Each project is one `<article class="proj" data-cat="interior|exterior">`. Photos are in `img/`.
+- **FAQ:** `faq.html`. If you change an answer, also update the matching text in the `FAQPage` JSON-LD in that file's `<head>`.
+- **Phone and email:** search for `416 435 9967` and `afxdevelopments@gmail.com`, and for `PHONE` / `EMAIL` in `js/quote.js`.
+- **Estimate form wording and trades:** `quote.html`; message format in `js/quote.js`.
+
+## Design
+
+One flat theme, no motion. Colours come from the logo (`css/site.css`, `:root`): forest `#1c3019`, olive `#5b623d`, copper `#a7612b`, cream `#f4f0e6`. Headings are condensed Archivo in upper case, body is Source Sans 3, the wordmark uses Cinzel. The pine treeline is `img/treeline.svg`, used as a mask in the hero and above the footer. Contrast was checked against WCAG AA.
 
 ## Preview mode (on now)
 
 While the client reviews the site, it is marked as a preview:
 
-- Both pages carry `<meta name="robots" content="noindex, nofollow">`, so Google won't list them.
-- Both pages show a "Preview" bar at the top (`PREVIEW-BAR:START` to `PREVIEW-BAR:END` in the HTML).
+- Every page carries `<meta name="robots" content="noindex, nofollow">`, so Google won't list it.
+- Every page shows a "Preview" bar at the top (`PREVIEW-BAR:START` to `PREVIEW-BAR:END` in the HTML).
 - `robots.txt` still allows crawling, which is needed for the noindex tag to be seen. `sitemap.xml` is ready but not advertised yet.
 
 ## Launch checklist
 
-1. In `index.html` and `privacy.html`: delete the `noindex` meta line and the `PREVIEW-BAR` block.
+1. In all seven HTML files: delete the `noindex` meta line and the `PREVIEW-BAR` block.
 2. In `robots.txt`: uncomment the `Sitemap:` line.
-3. If the site gets its own domain, replace `https://marcospila.github.io/afx-island-developments/` everywhere (canonical, `og:url`, `og:image`, JSON-LD in `index.html`; `canonical` in `privacy.html`; `robots.txt`; `sitemap.xml`). Also update the "Website hosting" paragraph in `privacy.html` if the host changes.
-4. Get Alberto's sign-off on the process steps, FAQ, About and privacy wording.
-5. Test the `sms:` and `mailto:` buttons on an iPhone and an Android phone.
+3. If the site gets its own domain, replace `https://marcospila.github.io/afx-island-developments/` everywhere (canonical and `og:` tags in every page, JSON-LD in `index.html`, `robots.txt`, `sitemap.xml`). Also update the "Website hosting" paragraph in `privacy.html` if the host changes.
+4. Get Alberto's sign-off on the services examples, process steps, FAQ, About and privacy wording.
+5. Replace the three low-resolution project photos (163 px) with full-size ones.
+6. Test the "Send by text" and "Send by email" buttons on an iPhone and an Android phone.
 
-## Files
+## Other files
 
 | Path | What it is |
 |---|---|
-| `fonts/` | Self-hosted Archivo, Cinzel, JetBrains Mono and Source Sans 3 (latin subsets, SIL OFL licence) |
-| `img/og-image.png` | 1200×630 share preview shown when the link is posted in chat or social apps |
-| `img/favicon-32.png`, `apple-touch-icon.png`, `icon-512.png` | Tab, home-screen and large icons (dark green square with the AFX mark) |
-| `privacy.html` | Plain-language privacy page. It describes what the site actually does (no cookies, no analytics, no data sent anywhere), so update it if that changes |
+| `css/site.css` | All styles |
+| `js/site.js`, `js/quote.js` | Mobile menu, copy buttons and work filter / estimate form |
+| `fonts/` | Self-hosted Archivo, Cinzel and Source Sans 3 (latin subsets, SIL OFL licence) |
+| `img/` | Logo files, project photos, `treeline.svg`, favicons, and the 1200×630 share image `og-image.png` |
 
 ## Rules
 
