@@ -2,7 +2,7 @@
 
 Home renovations and repairs across the GTA. Built by Pila Web Co.
 
-Static site: plain HTML pages, one stylesheet and two small scripts. No build step, no framework, no backend, no animation (only short colour changes on hover). No third-party requests: the fonts are self-hosted.
+Static site: plain HTML pages, one stylesheet and two small scripts. No build step, no framework, no backend. Motion is limited to small hover effects. No third-party requests: the fonts are self-hosted.
 
 Live preview: https://marcospila.github.io/afx-island-developments/
 
@@ -45,7 +45,9 @@ The live site refreshes in about a minute.
 
 One flat look with no motion. Greens come from the logo (`css/site.css`, `:root`): forest `#1c3019` and olive `#5b623d`. The accent is amber gold: `--copper: #d9a62e` (the token keeps its old name), with `--copper-dark` for hover, `--copper-light` for gold on dark areas and `--accent-text: #6e5208` for gold text on light areas. Text on gold buttons and tags is forest green (`--on-accent`). The logo's own copper is `#a7612b`; it stays in the logo images. Focus rings use `--accent-text` because plain gold is too faint on the light background. Headings are condensed Archivo in upper case, body is Source Sans 3, the wordmark uses Cinzel. The page has no hard edges or divider lines: the dark header/hero (and the dark page headers on inner pages) fade smoothly into the page colour, and the page fades into the footer (`--fade` in `.hero, .page-head`, and `.footer-fade`). Backgrounds stay quiet so the cards are the brightest surfaces on the page and the eye lands on what the business offers: the page canvas is a slightly deeper tone (`--paper`) and the cards use the lightest one (`--card`).
 
-**Cards:** every card (home tiles, service cards, project cards, steps, stats, estimate panels) is a tonal plate with a gold left edge and one cut corner. They (and the FAQ questions) share one rule in `css/site.css` (the block starting `/* cards: tonal plates ... */`); change `--cut` to resize the cut corner. The cut is made with `clip-path`, which also clips outlines, so keyboard focus on the home tiles is drawn inside the plate.
+**Cards:** every card (home tiles, service cards, project cards, steps, stats, estimate panels) is a tonal plate with a gold left edge and one cut corner. They (and the FAQ questions) share one rule in `css/site.css` (the block starting `/* cards: tonal plates ... */`); change `--cut` to resize the cut corner. The plate shape is drawn on a `::before` layer (not on the card itself), so the card can lift and cast a shadow that follows the cut corner.
+
+**Hover:** cards rise 3px with a soft shadow (and the Home tiles warm slightly), buttons rise 2px with a shadow, chips and icon buttons rise 1px, and link underlines ease out. These are short transitions (about 0.2s) and apply only on devices with a real pointer: they are off on touch screens and when the visitor has "reduce motion" turned on (see the `@media (hover: hover)` and `prefers-reduced-motion` blocks at the end of `css/site.css`).
 
 **Light and dark:** the site follows the visitor's system setting until they use the switch in the header; the choice is saved in `localStorage` as `afx-theme`. The header, hero and footer stay forest green in both themes, so their text is always the light cream colour (including the logo name on hover). Contrast was checked against WCAG AA in both themes.
 
