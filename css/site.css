@@ -122,17 +122,23 @@ p { margin: 0 0 14px; }
 .cta-row { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px 32px; margin-top: clamp(32px, 5vw, 56px); padding-top: 24px; border-top: 2px solid var(--edge); }
 .cta-row p { margin: 0; font: 800 clamp(1.3rem, 1rem + 1.2vw, 1.8rem)/1.1 var(--display); font-stretch: 75%; text-transform: uppercase; }
 
+/* cards: tonal plates with one cut corner and a copper edge */
+.tile, .svc, .proj, .step, .stat, .panel { --cut: 30px; background: var(--alt); border: 0; border-left: 5px solid var(--copper);
+  clip-path: polygon(0 0, calc(100% - var(--cut)) 0, 100% var(--cut), 100% 100%, 0 100%); }
+.tile, .step, .stat { --cut: 22px; }
+.tile .n, .svc .n { display: inline-block; align-self: flex-start; margin: 0; padding: 5px 9px 4px; background: var(--copper); color: #fffdf7; font: 700 12px/1 var(--display); letter-spacing: .14em; }
+
 /* service tiles (home) and cards (services page) */
 .tiles { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
-.tile { display: block; padding: 16px 18px 20px; background: var(--card); border: 2px solid var(--edge); border-top: 5px solid var(--olive-line); color: var(--ink); text-decoration: none; }
-.tile:hover { background: var(--sel-bg); color: var(--sel-fg); border-color: var(--sel-bg); border-top-color: var(--copper); }
-.tile .n { font: 700 12px/1 var(--display); letter-spacing: .14em; color: var(--accent-text); }
-.tile h3 { margin: 8px 0 8px; }
+.tile { display: block; padding: 18px 22px 20px; color: var(--ink); text-decoration: none; }
+.tile:focus-visible { outline-offset: -6px; }
+.tile:hover { background: var(--sel-bg); color: var(--sel-fg); }
+.tile h3 { margin: 10px 0 8px; }
 .tile p { margin: 0; font-size: 15px; line-height: 1.4; color: var(--ink-2); }
-.tile:hover .n, .tile:hover p { color: inherit; }
+.tile:hover p { color: inherit; }
 .svc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; }
-.svc { display: flex; flex-direction: column; gap: 10px; padding: 20px; background: var(--card); border: 2px solid var(--edge); border-top: 6px solid var(--copper); scroll-margin-top: 16px; }
-.svc:target { outline: 3px solid var(--copper); outline-offset: 3px; }
+.svc { display: flex; flex-direction: column; gap: 10px; padding: 22px 20px 22px 22px; scroll-margin-top: 16px; }
+.svc:target { background: color-mix(in srgb, var(--alt), var(--copper) 16%); }
 .svc h3 { margin: 0; }
 .svc > p { margin: 0; color: var(--ink-2); font-size: 16px; line-height: 1.4; }
 .svc ul { list-style: none; margin: 0; padding: 0; font-size: 16px; }
@@ -146,10 +152,10 @@ p { margin: 0 0 14px; }
 .chip:hover { background: var(--alt); }
 .chip[aria-pressed="true"] { background: var(--sel-bg); color: var(--sel-fg); border-color: var(--sel-bg); }
 .projects { display: grid; grid-template-columns: repeat(auto-fill, minmax(440px, 1fr)); gap: 16px; }
-.proj { display: grid; grid-template-columns: 163px 1fr; background: var(--card); border: 2px solid var(--edge); }
+.proj { display: grid; grid-template-columns: 163px 1fr; }
 .proj[hidden] { display: none; }
 .proj img { width: 100%; height: 100%; min-height: 163px; object-fit: cover; display: block; background: var(--alt); }
-.proj div { padding: 16px 18px; display: flex; flex-direction: column; gap: 8px; }
+.proj div { padding: 16px 38px 16px 18px; display: flex; flex-direction: column; gap: 8px; }
 .proj .eyebrow { letter-spacing: .1em; }
 .proj h3 { margin: 0; }
 .proj p { margin: 0; font-size: 15.5px; line-height: 1.4; color: var(--ink-2); }
@@ -159,11 +165,11 @@ p { margin: 0 0 14px; }
 .about-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: clamp(24px, 5vw, 56px); align-items: start; }
 .story p { font-size: 1.12rem; max-width: 60ch; }
 .stats { display: grid; gap: 12px; }
-.stat { display: grid; grid-template-columns: 96px 1fr; gap: 16px; align-items: center; padding: 14px 18px; background: var(--card); border: 2px solid var(--edge); border-left: 6px solid var(--olive-line); }
+.stat { display: grid; grid-template-columns: 96px 1fr; gap: 16px; align-items: center; padding: 14px 30px 14px 20px; }
 .stat b { font: 800 2.4rem/1 var(--display); font-stretch: 75%; color: var(--ink); }
 .stat span { font-size: 15.5px; line-height: 1.35; color: var(--ink-2); }
 .steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 16px; }
-.step { padding: 16px 18px 18px; background: var(--card); border: 2px solid var(--edge); border-top: 5px solid var(--olive-line); }
+.step { padding: 18px 22px 20px; }
 .step .n { display: block; font: 800 1.6rem/1 var(--display); font-stretch: 75%; color: var(--accent-text); margin-bottom: 8px; }
 .step h3 { margin: 0 0 6px; font-size: 1.2rem; }
 .step p { margin: 0; font-size: 15.5px; line-height: 1.4; color: var(--ink-2); }
@@ -201,7 +207,7 @@ p { margin: 0 0 14px; }
 .err { display: block; margin-top: 4px; color: var(--err); font-size: 14px; font-weight: 600; }
 .send { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 4px; }
 .note { margin: 12px 0 0; font-size: 15px; color: var(--ink-3); }
-.panel { background: var(--card); border: 2px solid var(--edge); border-top: 6px solid var(--olive-line); padding: 20px; margin-bottom: 16px; }
+.panel { padding: 22px 30px 22px 24px; margin-bottom: 16px; }
 .panel h2 { font-size: 1.5rem; margin-bottom: 12px; }
 .preview { margin: 0; white-space: pre-wrap; word-break: break-word; font: 400 15px/1.5 var(--body); color: var(--ink-2); max-height: 340px; overflow: auto; }
 .contact-list { margin: 0; padding: 0; list-style: none; }
@@ -268,7 +274,7 @@ p { margin: 0 0 14px; }
   body { font-size: 16.5px; }
   .logo span { display: none; }
   .tiles { grid-template-columns: 1fr 1fr; gap: 10px; }
-  .tile { padding: 12px 12px 14px; }
+  .tile { padding: 12px 18px 14px 14px; }
   .tile p { display: none; }
   .tile h3 { font-size: 1.15rem; margin: 6px 0 0; }
   .row2 { grid-template-columns: 1fr; }
@@ -276,7 +282,8 @@ p { margin: 0 0 14px; }
   .cta-row .btn { width: 100%; }
   .proj { grid-template-columns: 112px 1fr; }
   .proj img { min-height: 112px; }
-  .proj div { padding: 12px 14px; }
+  .proj div { padding: 12px 30px 12px 14px; }
+  .tile { --cut: 18px; }
   .stat { grid-template-columns: 76px 1fr; }
   .actions .btn, .send .btn { width: 100%; }
   .facts { gap: 6px 20px; }
