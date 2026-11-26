@@ -43,9 +43,9 @@ The live site refreshes in about a minute.
 
 ## Design
 
-One flat look with no motion. Colours come from the logo (`css/site.css`, `:root`): forest `#1c3019`, olive `#5b623d`, copper `#a7612b`, cream `#f4f0e6`. Headings are condensed Archivo in upper case, body is Source Sans 3, the wordmark uses Cinzel. The faint tape-measure ruler along the bottom of the hero and above the footer is pure CSS (`.ruler`, `.footer-ruler`).
+One flat look with no motion. Colours come from the logo (`css/site.css`, `:root`): forest `#1c3019`, olive `#5b623d`, copper `#a7612b`, cream `#f4f0e6`. Headings are condensed Archivo in upper case, body is Source Sans 3, the wordmark uses Cinzel. The page has no hard edges or divider lines: the dark header/hero (and the dark page headers on inner pages) fade smoothly into the page colour, and the page fades into the footer (`--fade` in `.hero, .page-head`, and `.footer-fade`). Backgrounds stay quiet so the cards are the brightest surfaces on the page and the eye lands on what the business offers: the page canvas is a slightly deeper tone (`--paper`) and the cards use the lightest one (`--card`).
 
-**Cards:** every card (home tiles, service cards, project cards, steps, stats, estimate panels) is a tonal plate with a copper left edge and one cut corner. They share one rule in `css/site.css` (the block starting `/* cards: tonal plates ... */`); change `--cut` to resize the cut corner. The cut is made with `clip-path`, which also clips outlines, so keyboard focus on the home tiles is drawn inside the plate.
+**Cards:** every card (home tiles, service cards, project cards, steps, stats, estimate panels) is a tonal plate with a copper left edge and one cut corner. They (and the FAQ questions) share one rule in `css/site.css` (the block starting `/* cards: tonal plates ... */`); change `--cut` to resize the cut corner. The cut is made with `clip-path`, which also clips outlines, so keyboard focus on the home tiles is drawn inside the plate.
 
 **Light and dark:** the site follows the visitor's system setting until they use the switch in the header; the choice is saved in `localStorage` as `afx-theme`. The header, hero and footer stay forest green in both themes, so their text is always the light cream colour (including the logo name on hover). Contrast was checked against WCAG AA in both themes.
 
