@@ -1,0 +1,7 @@
+# PREVIEW MODE: the pages carry a noindex tag, so search engines may crawl but will not list them.
+# Crawling must stay allowed, otherwise search engines never see the noindex tag.
+# AT LAUNCH: remove the noindex tag from the pages and uncomment the Sitemap line below.
+User-agent: *
+Allow: /
+
+# Sitemap: https://marcospila.github.io/afx-island-developments/sitemap.xml

@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Privacy · AFX Island Developments</title>
+<meta name="description" content="How the AFX Island Developments website handles your information: no accounts, no cookies, no tracking. Your estimate request goes straight from your own phone or email app.">
+<!-- PREVIEW: delete the next line at launch (and see README "Launch checklist") -->
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://marcospila.github.io/afx-island-developments/privacy.html">
+<meta name="theme-color" content="#1b2d1f">
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="512x512" href="img/icon-512.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="preload" href="fonts/source-sans-3-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="fonts/fonts.css">
+<script>
+  /* same theme logic as the main page: stored choice first, then the system setting */
+  try { var t = localStorage.getItem('afx-theme'); if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t); } catch (e) {}
+</script>
+<style>
+:root {
+  --paper: #f5f1e6; --ink: #1b2d1f; --ink-2: #3a4a3d; --ink-3: #56635a; --line: #ddd5c3; --vis: #a65a22; --vis-ink: #fffcf5;
+  --grid: rgb(27 45 31 / 0.05);
+  --display: 'Archivo', ui-sans-serif, system-ui, sans-serif;
+  --serif: 'Cinzel', Georgia, serif;
+  --body: 'Source Sans 3', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --mono: 'JetBrains Mono', ui-monospace, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --paper: #0f1a12; --ink: #eef0e4; --ink-2: #c4cbbd; --ink-3: #9aa595; --line: #26392b; --vis: #d8894a; --vis-ink: #0f1a12; --grid: rgb(200 220 190 / 0.05); color-scheme: dark; } }
+:root[data-theme="dark"] { --paper: #0f1a12; --ink: #eef0e4; --ink-2: #c4cbbd; --ink-3: #9aa595; --line: #26392b; --vis: #d8894a; --vis-ink: #0f1a12; --grid: rgb(200 220 190 / 0.05); color-scheme: dark; }
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 400 18px/1.65 var(--body);
+  background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px); background-size: 24px 24px; }
+a { color: inherit; text-underline-offset: 3px; }
+a:hover { color: var(--vis); }
+:focus-visible { outline: 2px solid var(--vis); outline-offset: 3px; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.preview-bar { background: var(--ink); color: var(--paper); text-align: center; padding: 9px 16px; font: 500 12.5px/1.4 var(--mono); letter-spacing: .04em; }
+.preview-bar b { font-weight: 700; text-transform: uppercase; letter-spacing: .12em; margin-right: 8px; }
+.wrap { max-width: 760px; margin-inline: auto; padding-inline: clamp(16px, 4vw, 40px); }
+header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 78px; }
+.logo img { height: 46px; width: auto; display: block; }
+.logo .dk { display: none; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .logo .lt { display: none; } :root:not([data-theme="light"]) .logo .dk { display: block; } }
+:root[data-theme="dark"] .logo .lt { display: none; }
+:root[data-theme="dark"] .logo .dk { display: block; }
+.back { font: 700 13px/1 var(--display); font-stretch: 110%; letter-spacing: .04em; text-transform: uppercase; text-decoration: none; border: 2px solid var(--ink); padding: 14px 18px; }
+.back:hover { background: var(--ink); color: var(--paper); }
+main { padding-block: clamp(36px, 7vw, 80px) 80px; }
+.kicker { font: 500 12.5px/1 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--vis); }
+h1 { margin: 14px 0 12px; font: 700 clamp(2.2rem, 1.3rem + 3.6vw, 3.6rem)/1.02 var(--serif); letter-spacing: .01em; text-wrap: balance; }
+.lede { font-size: 1.25rem; color: var(--ink-2); margin: 0 0 8px; }
+.updated { font: 400 13px var(--mono); color: var(--ink-3); margin: 0 0 40px; }
+h2 { margin: 40px 0 8px; font: 800 1.15rem/1.2 var(--display); font-stretch: 108%; text-transform: uppercase; letter-spacing: .03em; padding-top: 24px; border-top: 2px solid var(--ink); }
+p, ul { margin: 0 0 14px; }
+ul { padding-left: 1.2em; }
+li { margin-bottom: 6px; }
+li::marker { color: var(--vis); }
+code { font: 500 .88em var(--mono); background: color-mix(in srgb, var(--ink) 8%, transparent); padding: 1px 6px; }
+footer { border-top: 1px solid var(--line); padding-block: 28px; font: 400 13px var(--mono); color: var(--ink-3); }
+</style>
+</head>
+<body>
+<a class="sr-only" href="#main">Skip to content</a>
+<!-- PREVIEW-BAR:START (delete through PREVIEW-BAR:END at launch) -->
+<div class="preview-bar" role="note"><b>Preview</b> This site is not live yet. Details may change before launch.</div>
+<!-- PREVIEW-BAR:END -->
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="./" aria-label="AFX Island Developments, back to the home page">
+      <img class="lt" src="img/afx-mark.png" alt="" width="600" height="230">
+      <img class="dk" src="img/afx-mark-dark.png" alt="" width="600" height="230">
+    </a>
+    <a class="back" href="./">← Back to site</a>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap">
+    <span class="kicker">Privacy</span>
+    <h1>Your information, in plain words</h1>
+    <p class="lede">This website doesn't track you. It has no accounts, no cookies and no analytics. If you ask for an estimate, you send it yourself from your own phone or email.</p>
+    <p class="updated">Last updated 26 November 2026</p>
+
+    <h2>Who we are</h2>
+    <p>AFX Island Developments does home renovations and repairs in the GTA and surrounding areas. You can reach us at <a href="mailto:afxdevelopments@gmail.com">afxdevelopments@gmail.com</a> or <a href="tel:+14164359967">416 435 9967</a>.</p>
+
+    <h2>What this website collects</h2>
+    <p>Nothing. The site has no sign-in, no contact form that sends data to a server, no advertising, no analytics and no cookies. It doesn't load anything from other companies' servers: even the fonts come from our own site.</p>
+
+    <h2>The free estimate builder</h2>
+    <p>The estimate builder writes a message for you right in your browser. Nothing leaves your device while you fill it in. When you finish, you choose <b>Send by text</b> or <b>Send by email</b>, and your own messages or email app opens with the message ready to send. We only receive it if you press send there.</p>
+    <p>If you send it, we receive what you chose to include, such as your name, project description, phone number, email address, area and any photos you attach. We use it to reply to you, plan a visit and give you an estimate. Your text or email provider handles the message on its way to us, under its own privacy policy.</p>
+
+    <h2>What is stored in your browser</h2>
+    <p>The site remembers two small things on your own device. We never see them.</p>
+    <ul>
+      <li><code>afx-theme</code>: your light or dark choice, if you use the switch. It stays until you clear your browser data.</li>
+      <li><code>afx-cta</code>: whether you closed the floating estimate bar. It clears when you close the tab.</li>
+    </ul>
+
+    <h2>Website hosting</h2>
+    <p>Like any website, the company that hosts these pages may record technical details such as your IP address when your browser loads them. We don't use that information. This site is currently hosted on GitHub Pages, and we'll update this page if that changes.</p>
+
+    <h2>Your choices</h2>
+    <p>If you've sent us a request and want us to correct it or delete it, email <a href="mailto:afxdevelopments@gmail.com">afxdevelopments@gmail.com</a> and we'll take care of it. We don't sell or share your information.</p>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 AFX Island Developments · Building Today. Developing Tomorrow.</div>
+</footer>
+</body>
+</html>
