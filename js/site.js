@@ -8,7 +8,7 @@
   /* Social profiles: paste the full profile addresses here and every icon on every page starts working.
      Until a link is set, the icons are inert. Example: instagram: 'https://www.instagram.com/yourhandle' */
   const SOCIAL = {
-    instagram: '',
+    instagram: 'https://www.instagram.com/afxislanddevelopments/',
     facebook: 'https://www.facebook.com/profile.php?id=61597100485563',
   };
   $$('[data-social]').forEach((a) => {
